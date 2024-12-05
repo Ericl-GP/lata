@@ -1,0 +1,25 @@
+{% extends 'st/base.html' %}
+
+{% block title %}Lista Postagens{% endblock %}
+
+{% block conteudo %}
+	<!-- <a class="btn btn-success" href="{% url 'post-create' %}">Criar um Post</a> -->
+
+	<h1>Todos os Posts</h1>
+	<div class="row row-cols-1 row-cols-md-3 g-4">
+		{% for post in posts %} 
+		<div class="col">
+			<div class="card h-100 text-bg-light">
+				<img src="{{post.image.url}}" class="imagens" alt="{{post.title}}">
+				<div class="card-body">
+					<p class="font1">{{post.title}}</p>
+					<a class="btn" href="{% url 'post-detail' post.id %}">Ver</a>
+					<a class="btn" href="{% url 'post-update' post.id %}">Atualizar</a>
+					<a class="btn" href="{% url 'post-delete' post.id %}">Deletar</a>
+				</div>
+			</div> 
+		</div>
+		{% endfor %} 
+	</div>	 
+
+{% endblock %}

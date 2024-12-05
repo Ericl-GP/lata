@@ -1,0 +1,42 @@
+{% extends 'st/base.html' %}
+{% block conteudo %}
+
+<a class="font2" href="{% url 'post-create' %}">Criar um Post</a>
+<h2>cessao-1</h2>
+
+<h1>Todos os Posts</h1>
+<div class="font1">
+    {% for post in posts %} 
+    <div class="col">
+        <div class="card h-100 text-bg-light">
+            <img src="{{post.image.url}}" class="imagens" alt="{{post.title}}">
+            <div class="card-body">
+                <p class="font1">{{post.title}}</p>
+                <a class="btn" href="{% url 'post-detail' post.id %}">Ver</a>
+                <a class="btn" href="{% url 'post-update' post.id %}">Atualizar</a>
+                <a class="btn" href="{% url 'post-delete' post.id %}">Deletar</a>
+            </div>
+        </div> 
+    </div>
+    {% endfor %} 
+</div>	
+
+
+{% endblock %}
+
+
+
+{% block nota %}
+
+<h2>1 algo aleatorio</h2>
+<a class="btn" href=""></a>
+<h2>2 algo aleatorio</h2>
+<a class="btn" href=""></a>
+<h2>3 algo aleatorio</h2>
+<a class="btn" href=""></a>
+<h2>4 algo aleatorio</h2>
+<a class="btn" href=""></a>
+
+{% endblock %}
+
+

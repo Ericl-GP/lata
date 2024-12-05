@@ -1,0 +1,9 @@
+{% extends 'st/base.html' %}
+{% block title %}Deletar Postagem{% endblock %}
+{% block conteudo %}
+<form class="font1" method="post">
+    {% csrf_token %}
+    <p>Deseja deletar esse post ?</p>
+    <button class="btn btn-danger" type="submit">Deletar</button>
+</form> 
+{% endblock %}

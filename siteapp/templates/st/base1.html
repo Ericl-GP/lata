@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>------</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <a href="admin">adm</a>
+    <a href="cessao1">pg1</a>
+    <a href="cessao2">pg2</a>
+    <a href="cessao3">pg3</a>
+    <a href="cessao4">pg4</a>
+    <a href="cessao5">pg5</a>
+    
+    {% block conteudo %}
+    {% endblock %}
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+{% load static %}
+<!--static-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>....</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   
+
+</head>
+<body>
+
+<header class="header">
+   
+   <section class="flex">
+
+      <a href="cessao1" class="logo">Curvilíneo egressos</a>
+
+      <div class="icons">
+         <div id="menu-btn" class="fa-solid fa-bars"></div>
+         <div id="notf-btn" class="fa-solid fa-bell"></div>
+         <div id="user-btn" class="fa-solid fa-user"></div>
+         <div id="toggle-btn" class="fa-solid fa-cloud-sun"></div>
+      </div>
+
+      <div class="perfil">
+         <img src="static/img/geto.jpg" class="image" alt="">
+         <h3 class="name">{{ user.username }}</h3>
+         <p class="role"><a href="">...</a></p>
+         <div class="flex-btn"></div>
+         <a href="cessao0" class="option-btn">perfil</a>
+         <a href="#" class="option-btn">Configurações</a>
+         <a href="{% url 'userapp:logout' %}" class="option-btn">Sair</a>
+      </div>
+
+   </section>
+
+</header>
+<!---->
+<div class="side-bar">
+
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="perfil">
+      <h3 class="name">faculdade</h3>
+      <p class="role">local</p>
+   </div>
+
+   <nav class="navbar">
+      <a href="cessao1"><i class="fa-solid fa-chevron-right"></i><span>pag1</span></a>
+      <a href="cessao2"><i class="fa-solid fa-chevron-right"></i><span>pag2</span></a>
+      <a href="cessao3"><i class="fa-solid fa-chevron-right"></i><span>pag3</span></a>
+      <a href="cessao4"><i class="fa-solid fa-chevron-right"></i><span>pag4</span></a>
+      <a href="cessao5"><i class="fa-solid fa-chevron-right"></i><span>pag5</span></a>
+      <a href="cessao6"><i class="fa-solid fa-chevron-right"></i><span>pag6</span></a>
+      <a href="cessao7"><i class="fa-solid fa-chevron-right"></i><span>pag7</span></a>
+   </nav>
+</div>
+<!---->
+<div class="main">
+   <!---->
+<section class="section1">
+   <h1>{% include 'pg/_message.html' %}</h1>
+   <h1 class="font1">painel inicial</h1>
+    {% block conteudo %}
+    {% endblock %}
+</section>
+
+<section class="section2">
+   <h1 class="font1">conteudo</h1>
+   {% block nota %}
+   {% endblock %}
+</section>
+
+<!---->
+</div>
+<!---->
+<script src="{% static 'js/scripts.js' %}"></script>
+   
+</body>
+</html>

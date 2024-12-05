@@ -1,0 +1,21 @@
+{% extends 'st/base.html' %}
+{% block conteudo %}
+    <h2>Perfil do Usuário</h2>
+    
+    <p><strong>Nome:</strong> {{ user_profile.user.username }}</p>
+    <p><strong>Email:</strong> {{ user_profile.user.email }}</p>
+    <p><strong>Gênero:</strong> {{ user_profile.genero }}</p>
+    <p><strong>Campus:</strong> {{ user_profile.campus }}</p>
+    <p><strong>Curso:</strong> {{ user_profile.curso }}</p>
+    <p><strong>Data de Conclusão:</strong> {{ user_profile.data_conclusao }}</p>
+
+    {% if user_profile.foto_perfil %}
+        <p><strong>Foto de Perfil:</strong></p>
+        <img src="{{ user_profile.foto_perfil.url }}" alt="Foto de Perfil" style="max-width: 150px;">
+    {% else %}
+        <p><strong>Foto de Perfil:</strong> Não definida</p>
+    {% endif %}
+
+    <p><strong>Nível de Conta:</strong> {{ user_profile.nivel }}</p>
+
+{% endblock %}

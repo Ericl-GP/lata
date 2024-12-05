@@ -1,0 +1,512 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+   --main-color:#666666;/*cor dos botoes*/
+   --red:#888;/*cor do botao fechar*/
+   --orange:#9d9d9d;/*cor do botao la de baixo*/
+   --light-color:#888;/*cor do botao da navbar*/
+   --light-bg:#eee;/*cor do fundo*/
+   --black:#2c3e50;/*cor do texto e elemntos cliclaves*/
+   --white:#fff;/*cor dos elementos*/
+   --border:.1rem solid rgba(131, 131, 131, 0.301);/*cor das bordas*/
+}
+
+*{
+   font-family: 'Nunito', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+   box-sizing: border-box;
+}
+
+
+*::selection{
+   background-color: var(--main-color);
+   color:#fff;
+}
+
+html{
+   font-size: 50%;
+   overflow-x: hidden;
+}
+
+html::-webkit-scrollbar{
+   width: 1rem;
+   height: .5rem;
+}
+
+html::-webkit-scrollbar-track{
+   background-color: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+   background-color: var(--main-color);
+}
+
+body{
+   background-color: var(--light-bg);
+   padding-left: 30rem;
+}
+
+body.dark{
+   --light-color:#aaa;
+   --light-bg:#333;
+   --black:#fff;
+   --white:#222;
+   --border:.1rem solid rgba(255,255,255,.2);
+}
+
+body.active{
+   padding-left: 0;
+}
+
+section{
+   padding:2rem;
+   margin: 0 auto;
+   max-width: 1400px;
+}
+
+.heading{
+   font-size: 2.5rem;
+   color:var(--black);
+   margin-bottom: 2.5rem;
+   border-bottom: var(--border);
+   padding-bottom: 1.5rem;
+   text-transform: capitalize;
+}
+
+.btn,
+.option-btn{
+   border-radius: .2rem;
+   color:#fff;
+   font-size: 1.8rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   padding:1rem 3rem;
+   text-align: left ;
+   margin-top: 1rem;
+}
+
+.btn,
+.option-btn{
+   display: block;
+   width: 100%;
+}
+
+.btn{
+   background-color: var(--main-color);
+}
+
+.option-btn{
+   background-color:var(--orange);
+}
+
+.btn:hover,
+.option-btn:hover{
+   background-color: var(--black);
+   color: var(--white);
+}
+
+.flex-btn{
+   display: flex;
+   gap: 1rem;
+}
+
+.header{
+   position: sticky;
+   top:0; left:0; right: 0;
+   background-color: var(--white);
+   z-index: 1000;
+   border-bottom: var(--border);
+}
+
+.header .flex{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   position: relative;
+   padding: 1.5rem 2rem;
+}
+
+.header .flex .logo{
+   font-size: 2.5rem;
+   color: var(--black);
+}
+
+.header .flex .icons div{
+   font-size: 2rem;
+   color:var(--black);
+   background-color: var(--light-bg);
+   border-radius: .2rem;
+   height: 4.5rem;
+   width: 4.5rem;
+   line-height: 4.5rem;
+   cursor: pointer;
+   text-align: center;
+   margin-left: .6rem;
+}
+
+.header .flex .icons div:hover{
+   background-color: var(--black);
+   color:var(--white);
+}
+
+.header .flex .perfil{
+   position: absolute;
+   top:110%; right: 2rem;
+   background-color: var(--white);
+   border-radius: .2rem;
+   padding: 1rem;
+   text-align: center;
+   overflow: hidden;
+   transform-origin: top right;
+   transform: scale(0);
+   transition: .2s linear;
+   width: 25rem;
+}
+
+.header .flex .perfil.active{
+   transform: scale(1);
+}
+
+.header .flex .perfil .image{
+   height: 10rem;
+   width: 10rem;
+   border-radius: 20%;
+   object-fit: contain;
+   margin-bottom: 1rem;
+}
+
+.header .flex .perfil .name{
+   font-size: 2rem;
+   color:var(--black);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.header .flex .perfil .role{
+   font-size: 1.8rem;
+   color: var(--light-color);
+}
+
+
+/*-------------------------------------------*/
+/*-------------------------------------------*/
+
+
+.side-bar{
+   position: fixed;
+   top: 0; left: 0;
+   width: 30rem;
+   background-color: var(--white);
+   height: 100vh;
+   border-right: var(--border);
+   z-index: 1200;
+}
+
+.side-bar #close-btn{
+   text-align: right;
+   padding: 2rem;
+   display: none;
+}
+
+.side-bar #close-btn i{
+   text-align: right;
+   font-size: 2.5rem;
+   background:var(--red);
+   border-radius: .5rem;
+   color:var(--white);
+   cursor: pointer;
+   height: 4.5rem;
+   width: 4.5rem;
+   line-height: 4.5rem;
+   text-align: center;
+}
+
+.side-bar #close-btn i:hover{
+   background-color: var(--black);
+}
+
+.side-bar .perfil{
+   padding:3rem 2rem;
+   text-align: center;
+}
+
+.side-bar .perfil .image{
+   height: 10rem;
+   width: 10rem;
+   border-radius: 20%;
+   object-fit: contain;
+   margin-bottom: 1rem;
+}
+
+.side-bar .perfil .name{
+   font-size: 2rem;
+   color:var(--black);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.side-bar .perfil .role{
+   font-size: 1.8rem;
+   color: var(--light-color);
+}
+
+.side-bar .navbar a{
+   display: block;
+   padding: 2rem;
+   font-size: 2rem;
+}
+
+.side-bar .navbar a i{
+   margin-right: 1.5rem;
+   color:var(--main-color);
+   transition: .2s linear;
+}
+
+.side-bar .navbar a span{
+   color:var(--light-color);
+}
+
+.side-bar .navbar a:hover{
+   background-color: var(--light-bg);
+}
+
+.side-bar.active{
+   left: -30rem;
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+
+.font1{
+   font-size: 2.5rem;
+   color:var(--black);
+   margin-bottom: 2.5rem;
+   border-bottom: var(--border);
+   padding-bottom: 1.5rem;
+   text-transform: capitalize;
+}
+.font2{
+   font-size: 15px;
+   color:var(--black);
+   text-decoration: none;
+}
+.font2:visited {
+   color: #828282;
+   
+}
+.pf{
+   font-size: 15px;
+   color:var(--black);
+}
+/*-----------------------------------------------------------------------------------*/
+
+.imagens{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+/* Container principal */
+.main {
+   display: flex;
+   gap: 20px; /* Espaço entre as seções */
+   padding: 5px;
+   justify-content: space-between;
+   flex-wrap: wrap; /* Garante que o layout seja responsivo em telas pequenas */
+}
+
+/* Estilos da seção quadrada */
+.section1 {
+   width: 100%; /* A largura será 100% da tela em dispositivos móveis */
+   max-width: 600px; /* Limita a largura em telas grandes */
+   padding: 10px;
+   align-items: center;
+   justify-content: center;
+   overflow: hidden;
+}
+
+.section1 h2 {
+   font-size: 1.5rem;
+   margin-bottom: 10px;
+}
+
+/* Estilos da seção vertical */
+.section2 {
+   width: 100%; /* A largura será 100% da tela em dispositivos móveis */
+   max-width: 400px; /* Limita a largura em telas grandes */
+   padding: 10px;
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+}
+
+.section2 h2 {
+   font-size: 1.5rem;
+   margin-bottom: 10px;
+}
+
+/* Estilos para responsividade */
+@media (max-width: 768px) {
+   .main {
+       flex-direction: column; /* Se a tela for pequena, empilha as seções */
+   }
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*formularios*/
+/* Estilos da caixa flutuante */
+.floating-box {
+   position: fixed;
+   top: 20%;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 380px;
+   max-height: 70%;
+   background-color: white;
+   border: 2px solid #ccc;
+   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+   display: none;
+   z-index: 1000;
+   box-sizing: border-box;
+   padding: 10px;
+   overflow: auto;
+}
+
+/* Título da caixa */
+.box-title {
+   font-size: 18px;
+   font-weight: bold;
+   margin-bottom: 15px;
+   text-align: left;
+}
+
+/* Conteúdo da caixa (div interna) */
+.box-content {
+   max-height: calc(100% - 60px); /* Espaço para o botão de envio */
+   overflow-y: auto; /* Scroll apenas na vertical */
+   margin-bottom: 20px;
+   width: 100%;
+}
+
+/* Botão de fechar */
+.close-btn {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   font-size: 24px;
+   cursor: pointer;
+   color: #999999;
+   background: transparent;
+   border: none;
+}
+
+/* Botão de envio fixo no final da caixa */
+.submit-btn {
+   width: 100%;
+   padding: 10px 20px;
+   background-color: #999999;
+   color: white;
+   border: none;
+   cursor: pointer;
+}
+
+.submit-btn:hover {
+   background-color: #999999;
+}
+
+/* Botão de abrir box */
+.open-btn {
+   padding: 10px 20px;
+   background-color: #999999;
+   color: white;
+   border: none;
+   cursor: pointer;
+   margin-top: 20px;
+}
+
+.open-btn:hover {
+   background-color: #999999;
+}
+
+/* Estilos para a área de texto */
+textarea {
+   width: 100%;
+   max-width: 95%;
+   padding: 10px;
+   resize: vertical;
+}
+
+/*---cessão1-------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------*/
+/*---cessão2-------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------*/
+/*---cessão3-------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------*/
+/*---cessão4-------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------*/
+/*---cessão5-------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------*/
+
+@media (max-width:1200px){
+
+   body{
+      padding-left: 0;
+   }
+
+   .side-bar{
+      left: -30rem;
+      transition: .2s linear;
+   }
+
+   .side-bar #close-btn{
+      display: block;
+   }
+
+   .side-bar.active{
+      left: 0;
+      box-shadow: 0 0 0 100vw rgba(0,0,0,.8);
+      border-right: 0;
+   }
+
+}
+
+@media (max-width:991px){
+
+   html{
+      font-size: 55%;
+   }
+
+}
+
+@media (max-width:450px){
+
+   html{
+      font-size: 50%;
+   }
+
+   .flex-btn{
+      gap: 0;
+      flex-flow: column;
+   }
+
+   .section1 .floating-box{
+      grid-template-columns: 1fr;
+   }
+
+   .section1 .row .image img{
+      height: 25rem;
+   }
+
+}
+
+

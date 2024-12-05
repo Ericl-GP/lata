@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <a href="{% url 'userapp:home' %}">Página Inicial</a>
+
+    <div class="overlay" id="overlay">
+        <div class="modal-box">
+            <button id="theme-toggle" class="close-btn">•</button>
+            <h2>Login</h2>
+            <div class="modal-content">
+                <form method="post" action="{% url 'userapp:login' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="email">Seu e-mail *</label>
+                        <!--<input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>-->
+                        <input type="text" id="username" name="username" placeholder="Digite seu nick" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Sua senha *</label>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                        <!--<input type="password" name="password" id="password" required>-->
+                    </div>
+                    
+    
+    
+                    <button type="submit" class="btn">Logar</button>
+                    <button class="btn"><a href="{% url 'userapp:register' %}">Criar conta</a></button>
+                    <a href="{% url 'userapp:password_reset' %}">Redefinir senha</a>
+                </form>
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

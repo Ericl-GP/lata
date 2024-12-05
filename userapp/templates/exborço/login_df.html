@@ -1,0 +1,20 @@
+<a href="{% url 'userapp:home' %}">Página Inicial</a>
+
+<h1>Login</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="username">Usuário:</label>
+    <input type="text" name="username" id="username" required>
+    <br>
+    <label for="password">Senha:</label>
+    <input type="password" name="password" id="password" required>
+    <br>
+    <button type="submit">Entrar</button>
+</form>
+{% for message in messages %}
+    <p>{{ message }}</p>
+{% endfor %}
+
+
+<p>Não tem uma conta? <a href="{% url 'userapp:register' %}">Registre-se aqui</a>.</p>
+<p>Esqueceu a senha? <a href="{% url 'userapp:password_reset' %}">Redefinir senha</a>.</p>
