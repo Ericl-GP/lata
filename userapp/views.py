@@ -34,6 +34,15 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.template.loader import render_to_string
 
+from rest_framework import viewsets
+from .models import UserProfile
+from .serializers import UsuarioSerializer
+
+class UsuarioViewSet(viewsets.ModelViewSet):
+    queryset = UserProfile.objects.all()
+    serializer_class = UsuarioSerializer
+
+
 # Página inicial
 def login_view(request):
     if request.method == 'POST':
